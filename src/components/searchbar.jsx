@@ -1,9 +1,10 @@
 import React, { useState, useRef, useEffect } from "react";
 import "../stylesheets/searchbar.css";
+import RefreshSVG from "../utils/refresh.svg";
 import SearchSVG from "../utils/search.svg";
 import SearchResults from "./searchResults";
 
-const Searchbar = ({ beers, onBeerStateChange }) => {
+const Searchbar = ({ beers, onBeerStateChange, onRefreshClick }) => {
   const containerRef = useRef(null);
 
   const [searchQuery, setSearchQuery] = useState("");
@@ -44,35 +45,49 @@ const Searchbar = ({ beers, onBeerStateChange }) => {
   }, [searchQuery, searchCategory]);
 
   return (
-    <div ref={containerRef} className="searchbar">
-      <div className="search-icon">
-        <img src={SearchSVG} alt="Shopping cart" />
-      </div>
-      <div className="search">
-        <input
-          className="searchbar-text"
-          type="text"
-          value={searchQuery}
-          placeholder="Search..."
-          onChange={handleQueryChange}
-          onFocus={() => setShowResults(true)}
-        />
-        {showResults && searchQuery.length !== 0 && (
-          <SearchResults
-            searchResults={searchResults}
-            onBeerStateChange={onBeerStateChange}
+    <div className="searchbar-container">
+      <div ref={containerRef} className="searchbar">
+        <div className="search-icon">
+          <img src={SearchSVG} alt="Shopping cart" />
+        </div>
+        <div className="search">
+          <input
+            className="searchbar-text"
+            type="text"
+            value={searchQuery}
+            placeholder="Search..."
+            onChange={handleQueryChange}
+            onFocus={() => setShowResults(true)}
           />
-        )}
+          {showResults && searchQuery.length !== 0 && (
+            <SearchResults
+              searchResults={searchResults}
+              onBeerStateChange={onBeerStateChange}
+            />
+          )}
+        </div>
+        <div className="searchbar-select">
+          <select
+            className="searchbar-select-menu"
+            value={searchCategory}
+            onChange={(e) => handleCategoryChange(e)}
+          >
+            <option value="brand">Brand</option>
+            <option value="name">Name</option>
+          </select>
+        </div>
       </div>
-      <div className="searchbar-select">
-        <select
-          className="searchbar-select-menu"
-          value={searchCategory}
-          onChange={(e) => handleCategoryChange(e)}
-        >
-          <option value="brand">Brand</option>
-          <option value="name">Name</option>
-        </select>
+      <div className="refresh-btn-container">
+        {/* <button className="refresh-btn"> */}
+        <img
+          className="refresh-btn"
+          onClick={onRefreshClick}
+          src={RefreshSVG}
+          alt="refresh"
+          width="30px"
+          height="30px"
+        />
+        {/* </button> */}
       </div>
     </div>
   );

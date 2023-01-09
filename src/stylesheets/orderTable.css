@@ -33,6 +33,11 @@
   box-shadow: var(--shadow-red-far);
 }
 
+.co-place-order-btn:disabled:hover {
+  box-shadow: var(--shadow-red);
+  cursor: default;
+}
+
 .table {
   width: 100%;
   border: 1px solid black;
@@ -121,4 +126,30 @@ th:first-child {
   border: none;
   margin: auto 0;
   cursor: pointer;
+}
+
+.co-empty-cart {
+  margin-top: 4rem;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 1rem;
+}
+
+.co-empty-cart-btn {
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
+  border: 1px solid rgb(141, 141, 141);
+  background-color: var(--element-background);
+  outline: none;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: var(--shadow-blue);
+  transition: box-shadow 0.5s ease;
+}
+
+.co-empty-cart-btn:hover {
+  box-shadow: var(--shadow-blue-far);
 }

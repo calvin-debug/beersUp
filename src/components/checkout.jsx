@@ -1,6 +1,8 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import "../stylesheets/orderTable.css";
-import { getOpenOrder } from "../utils/beerFunctions";
+import { getOpenOrder, changeBeerState } from "../utils/beerFunctions";
+import EmptyTable from "./emptyTable";
 
 const Checkout = ({ beers, onBeerListChange }) => {
   const generateOrderId = () => {
@@ -31,7 +33,7 @@ const Checkout = ({ beers, onBeerListChange }) => {
     // Creating the order object with an id and the order itself
     const finalisedOrder = {
       orderId: generateOrderId(),
-      order: getOpenOrder(),
+      order: getOpenOrder(beers),
     };
 
     if (!allOrders) {
@@ -65,6 +67,11 @@ const Checkout = ({ beers, onBeerListChange }) => {
     return "";
   };
 
+  const handleBeerStateChange = (beerId, remove) => {
+    const beerGroups = changeBeerState(beers, beerId, remove);
+    onBeerListChange(beerGroups);
+  };
+
   // Generate the current open order based on the beers
   const beerOrderGroups = getOpenOrder(beers);
 
@@ -78,6 +85,7 @@ const Checkout = ({ beers, onBeerListChange }) => {
           <button
             onClick={handlePlaceOrderClick}
             className="co-place-order-btn"
+            disabled={beerOrderGroups.length === 0}
           >
             Place order
           </button>
@@ -107,7 +115,12 @@ const Checkout = ({ beers, onBeerListChange }) => {
                 <td className="column-row-center">{beer.alcohol}</td>
                 <td className="column-row-center">
                   <div className="co-delete-btn-container">
-                    <button className="co-delete-btn">-</button>
+                    <button
+                      onClick={() => handleBeerStateChange(beer.id, false)}
+                      className="co-delete-btn"
+                    >
+                      -
+                    </button>
                   </div>
                 </td>
               </tr>
@@ -115,6 +128,7 @@ const Checkout = ({ beers, onBeerListChange }) => {
           })}
         </tbody>
       </table>
+      {beerOrderGroups.length === 0 && <EmptyTable />}
     </div>
   );
 };

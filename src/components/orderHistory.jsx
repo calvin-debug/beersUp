@@ -1,6 +1,7 @@
 import React from "react";
 import "../stylesheets/orderTable.css";
 import { getAllOrdersFromLocalStorage } from "../utils/beerFunctions";
+import EmptyTable from "./emptyTable";
 
 const OrderHistory = () => {
   const allOrders = getAllOrdersFromLocalStorage();
@@ -67,6 +68,7 @@ const OrderHistory = () => {
           })}
         </tbody>
       </table>
+      {allOrders.length === 0 && <EmptyTable />}
     </div>
   );
 };

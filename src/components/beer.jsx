@@ -1,7 +1,7 @@
 import React from "react";
 import BeerButton from "./beerButton";
 
-const Beer = ({ id, name, brand, alcohol, added, onBeerStateChange }) => {
+const Beer = ({ id, name, brand, alcohol, inOrder, onBeerStateChange }) => {
   return (
     <div className="beer">
       <div className="beer-info">
@@ -12,7 +12,7 @@ const Beer = ({ id, name, brand, alcohol, added, onBeerStateChange }) => {
       <div className="beer-buttons">
         <BeerButton
           beerId={id}
-          added={added}
+          added={inOrder}
           onBeerStateChange={onBeerStateChange}
         />
       </div>

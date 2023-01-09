@@ -21,12 +21,7 @@ const BeerGroup = ({
       </div>
       <div className="beer-list">
         {group.beers.map((beer, index) => (
-          <Beer
-            key={index}
-            added={beer.inOrder}
-            onBeerStateChange={onBeerStateChange}
-            {...beer}
-          />
+          <Beer key={index} onBeerStateChange={onBeerStateChange} {...beer} />
         ))}
       </div>
       <OrderButton

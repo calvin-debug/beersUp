@@ -1,0 +1,25 @@
+.pagination-btns {
+  border: 1px solid black;
+  width: min-content;
+  display: flex;
+  margin: 40px auto;
+}
+
+.pagination-btn {
+  height: 30px;
+  width: 30px;
+  font-size: 1rem;
+  outline: none;
+  border: none;
+  border-right: 1px solid black;
+  cursor: pointer;
+}
+
+.pagination-btn-active {
+  background-color: black;
+  color: white;
+}
+
+.pagination-btn:last-child {
+  border-right: none;
+}
