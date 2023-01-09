@@ -12,7 +12,50 @@
 .nav-links {
   width: 920px;
   display: flex;
-  justify-content: flex-end;
+  justify-content: space-between;
+}
+
+.nav-link-home {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  margin-left: 2rem;
+}
+
+.home-text {
+  text-decoration: none;
+  color: black;
+  font-weight: 600;
+}
+
+.nav-link-home > img:first-child {
+  transform: rotate(30deg);
+  transition: transform 0.1s ease;
+  position: absolute;
+  left: 100%;
+}
+
+.nav-link-home > img:last-child {
+  transform: rotate(-30deg);
+  transition: transform 0.1s ease;
+  position: absolute;
+  right: 100%;
+}
+
+.nav-link-home:hover > img:first-child {
+  transform: rotate(15deg);
+}
+
+.nav-link-home:hover > img:last-child {
+  transform: rotate(-15deg);
+}
+
+.nav-link-shopping {
+  display: flex;
+  gap: 1.5rem;
+  /* align-items: center; */
+  justify-content: center;
 }
 
 .nav-links > * {
@@ -28,6 +71,9 @@
   position: relative;
   z-index: 1;
   top: 5px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
 
 .shopping-cart-icon::after {
@@ -45,4 +91,8 @@
 
 .nav-links > * {
   margin-right: 1rem;
+}
+
+.nav-link {
+  text-decoration: none;
 }

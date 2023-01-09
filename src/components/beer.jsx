@@ -1,4 +1,5 @@
 import React from "react";
+import BeerButton from "./beerButton";
 
 const Beer = ({ id, name, brand, alcohol, added, onBeerStateChange }) => {
   return (
@@ -9,21 +10,11 @@ const Beer = ({ id, name, brand, alcohol, added, onBeerStateChange }) => {
         <span className="beer-alcohol">{alcohol}</span>
       </div>
       <div className="beer-buttons">
-        {added ? (
-          <button
-            onClick={() => onBeerStateChange(id, false)}
-            className="btn-beer btn-beer-remove"
-          >
-            Spill
-          </button>
-        ) : (
-          <button
-            onClick={() => onBeerStateChange(id, true)}
-            className="btn-beer btn-beer-add"
-          >
-            Fill
-          </button>
-        )}
+        <BeerButton
+          beerId={id}
+          added={added}
+          onBeerStateChange={onBeerStateChange}
+        />
       </div>
     </div>
   );

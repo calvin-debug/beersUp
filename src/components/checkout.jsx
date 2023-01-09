@@ -1,14 +1,8 @@
 import React from "react";
 import "../stylesheets/orderTable.css";
+import { getOpenOrder } from "../utils/beerFunctions";
 
-const Checkout = ({ setBeers, beers }) => {
-  const getOpenOrder = () => {
-    // Get the current open order from local storage
-    const openOrder = localStorage.getItem("openOrder");
-    if (!openOrder || openOrder.length === 0) return [];
-    return JSON.parse(openOrder);
-  };
-
+const Checkout = ({ beers, onBeerListChange }) => {
   const generateOrderId = () => {
     const unixTime = Date.now().toString();
     const randomNumber = Math.floor(Math.random() * 1000).toString();
@@ -27,7 +21,7 @@ const Checkout = ({ setBeers, beers }) => {
       return group;
     });
 
-    setBeers(newBeers);
+    onBeerListChange(newBeers);
   };
 
   const handlePlaceOrderClick = () => {
@@ -57,7 +51,6 @@ const Checkout = ({ setBeers, beers }) => {
     localStorage.removeItem("openOrder");
   };
 
-  const beerOrderGroups = getOpenOrder();
   const getRowClass = (groupSize, index) => {
     // Get the row class based on the group size and the index of the row
     if (groupSize === 1) {
@@ -71,6 +64,9 @@ const Checkout = ({ setBeers, beers }) => {
     }
     return "";
   };
+
+  // Generate the current open order based on the beers
+  const beerOrderGroups = getOpenOrder(beers);
 
   return (
     <div>
@@ -87,12 +83,11 @@ const Checkout = ({ setBeers, beers }) => {
           </button>
         </div>
       </div>
-      {/* A checkout table. The table will have 5 columns - "Group", "Drink name", "Brand", "Alcohol", "Delete" */}
       <table className="table co-table">
         <thead>
           <tr>
-            <th className="column-header-group">Style</th>
-            <th className="column-header-name">Name</th>
+            <th className="column-header-group">Group</th>
+            <th className="column-header-name">Drink Name</th>
             <th className="column-header-brand">Brand</th>
             <th className="column-header-alcohol">%</th>
             <th className="column-header-delete">Delete</th>
@@ -112,12 +107,7 @@ const Checkout = ({ setBeers, beers }) => {
                 <td className="column-row-center">{beer.alcohol}</td>
                 <td className="column-row-center">
                   <div className="co-delete-btn-container">
-                    <button
-                      // onClick={() => onBeerStateChange(beer.id, true)}
-                      className="co-delete-btn"
-                    >
-                      -
-                    </button>
+                    <button className="co-delete-btn">-</button>
                   </div>
                 </td>
               </tr>

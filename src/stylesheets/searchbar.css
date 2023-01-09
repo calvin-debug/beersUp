@@ -62,7 +62,8 @@
 
 .search-results {
   list-style: none;
-  background-color: beige;
+  background-color: var(--element-background);
+  border: 1px solid black;
   width: 550px;
   position: absolute;
   top: 45px;
@@ -73,6 +74,10 @@
   display: flex;
   justify-content: space-between;
   border-bottom: 1px dashed gray;
+}
+
+.search-result:last-child {
+  border-bottom: none;
 }
 
 .test {

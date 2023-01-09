@@ -1,7 +1,10 @@
 import React from "react";
 import "../stylesheets/orderTable.css";
+import { getAllOrdersFromLocalStorage } from "../utils/beerFunctions";
 
-const OrderHistory = ({ allOrders }) => {
+const OrderHistory = () => {
+  const allOrders = getAllOrdersFromLocalStorage();
+
   const getRowClass = (groupSize, index) => {
     // Get the row class based on the group size and the index of the row
     if (groupSize === 1) {
@@ -23,7 +26,6 @@ const OrderHistory = ({ allOrders }) => {
           <h1>Do you still remember these?</h1>
         </div>
       </div>
-      {/* A checkout table. The table will have 5 columns - "Order ID", "Group", "Drink name", "Brand", "Alcohol" */}
       <table className="table history-table">
         <thead>
           <tr>

@@ -123,25 +123,6 @@ function removeLowestAlcoholBeerFromOrder(group) {
 }
 
 /**
- * Gets the open order from the list of all beers.
- * @param {array} beers - The list of all beers groups.
- * @returns {array} A list of beer groups that are added to the order.
- */
-export function getOpenOrder(beers) {
-  // Get all groups that are added to the order
-  const inOrderGroups = beers.filter((group) => group.groupInOrder);
-  // Filter out all beers that are not added to the order
-  const filteredGroups = inOrderGroups.map((group) => {
-    const filteredBeers = group.beers.filter((beer) => beer.inOrder);
-    return { ...group, beers: filteredBeers };
-  });
-  const nonEmptyGroups = filteredGroups.filter(
-    (group) => group.beers.length > 0
-  );
-  return nonEmptyGroups;
-}
-
-/**
  * Changes the "groupInOrder" property of the beer group with the given ID based on the "remove" argument.
  * @param {array} beers - The list of all beers groups.
  * @param {number} groupId - Group ID of the beer group to change.
@@ -226,4 +207,18 @@ export function getAllOrdersFromLocalStorage() {
   const allOrders = localStorage.getItem("allOrders");
   if (!allOrders || allOrders.length === 0) return [];
   return JSON.parse(allOrders);
+}
+
+export function getOpenOrder(beers) {
+  // Get all groups that are added to the order
+  const inOrderGroups = beers.filter((group) => group.groupInOrder);
+  // Filter out all beers that are not added to the order
+  const filteredGroups = inOrderGroups.map((group) => {
+    const filteredBeers = group.beers.filter((beer) => beer.inOrder);
+    return { ...group, beers: filteredBeers };
+  });
+  const nonEmptyGroups = filteredGroups.filter(
+    (group) => group.beers.length > 0
+  );
+  return nonEmptyGroups;
 }
