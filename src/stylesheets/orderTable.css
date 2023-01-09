@@ -1,0 +1,124 @@
+:root {
+  --table-line-color: #1e1e1e69;
+  --table-cell-border: 1px dotted var(--table-line-color);
+}
+
+.co-table-header {
+  display: flex;
+  justify-content: space-between;
+  margin-bottom: 0.75rem;
+}
+
+.co-place-order {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  margin-right: 1rem;
+}
+
+.co-place-order-btn {
+  cursor: pointer;
+  width: 150px;
+  height: 35px;
+  border: 1px solid rgb(141, 141, 141);
+  background-color: var(--element-background);
+  outline: none;
+  font-weight: 600;
+  font-size: 1rem;
+  box-shadow: var(--shadow-red);
+  transition: box-shadow 0.5s ease;
+}
+
+.co-place-order-btn:hover {
+  box-shadow: var(--shadow-red-far);
+}
+
+.table {
+  width: 100%;
+  border: 1px solid black;
+  border-collapse: collapse;
+  background-color: var(--element-background);
+}
+
+.co-table {
+  box-shadow: var(--shadow-blue);
+}
+
+.history-table {
+  box-shadow: var(--shadow-red);
+}
+
+th,
+.group-last > td:not(.column-row-order-id) {
+  border-bottom: var(--table-cell-border);
+}
+
+th {
+  color: #1e1e1e7e;
+  font-weight: 400;
+  text-align: left;
+  padding: 5px;
+  border-bottom: var(--table-cell-border);
+}
+
+td {
+  padding: 0 5px;
+  font-weight: 600;
+}
+
+td:first-child,
+th:first-child {
+  padding-left: 10px;
+}
+
+.column-header-alcohol,
+.column-header-delete {
+  text-align: center;
+}
+
+.column-row-order-id {
+  border-right: var(--table-cell-border);
+  border-bottom: none;
+}
+
+.column-row-order-id.order-id {
+  border-top: var(--table-cell-border);
+}
+
+.column-row-center {
+  text-align: center;
+}
+
+.co-table th:last-child {
+  border-right: none;
+}
+
+.group-first > td {
+  padding-top: 5px;
+}
+
+.group-last > td {
+  padding-bottom: 5px;
+}
+
+.group-last:last-child > td {
+  border-bottom: none;
+}
+
+.co-delete-btn-container {
+  width: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.co-delete-btn {
+  width: 20px;
+  height: 20px;
+  color: white;
+  background-color: black;
+  outline: none;
+  border: none;
+  margin: auto 0;
+  cursor: pointer;
+}

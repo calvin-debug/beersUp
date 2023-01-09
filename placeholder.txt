@@ -1,0 +1,22 @@
+{id: 4930, uid: '66301089-ff8d-4a3c-8ce0-fa4903380dbb', brand: 'Patagonia', name: 'Hop Rod Rye', style: 'Merican Ale'}
+{id: 3938, uid: 'c72927f0-3d6b-4e9e-aa08-b170f33731bb', brand: 'Pacifico', name: 'Sapporo Premium', style: 'Smoke-flavored'}
+{id: 4488, uid: 'b75c96df-b45d-437c-96b1-1b17bd9fb8c7', brand: 'Lowenbrau', name: 'Kirin Inchiban', style: 'Scottish And Irish Ale'}
+{id: 6698, uid: 'e2f9dfb7-b60d-4456-866a-d4874e18aa74', brand: 'BudLight', name: 'Trappistes Rochefort 8', style: 'Light Lager'}
+{id: 6982, uid: '0c20acec-bf05-4be7-b23f-b3bf6c315f5d', brand: 'Delirium', name: 'Sublimely Self-Righteous Ale', style: 'India Pale Ale'}
+{id: 5435, uid: '1c0628ba-c14f-410f-9a95-a3128cafb39f', brand: 'Stella Artois', name: 'Nugget Nectar', style: 'Bock'}
+{id: 9153, uid: '73734df8-47d3-4b6a-a7cf-cf908f2df3a5', brand: 'Patagonia', name: 'Brooklyn Black', style: 'Strong Ale'}
+
+
+
+alcohol : "5.8%"
+id : 4488
+brand : "Lowenbrau"
+name : "Kirin Inchiban"
+style : "Scottish And Irish Ale"
+
+blg : "9.6°Blg"
+hop : "Brewer’s Gold"
+ibu : "32 IBU"
+malts : "Carapils"
+uid : "b75c96df-b45d-437c-96b1-1b17bd9fb8c7"
+yeast : "5335 - Lactobacillus"
